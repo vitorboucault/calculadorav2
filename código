@@ -1,0 +1,49 @@
+# VÁRIAVEIS
+
+saida = ''
+
+# Funções
+
+def adicao (num1, num2):
+    return num1 + num2
+def subtracao(num1,num2):
+    return num1 - num2
+def multiplicacao(num1,num2):
+    return num1*num2
+def divisao(num1,num2):
+    if num2 != 0:
+        return num1 / num2
+
+    else:
+        return ('Não foi possivel realizar essa divisão, tente novamente \n')
+    
+def calculadora (num1, num2, operacao):
+    if operacao == '+' or operacao.lower() == 'mais':
+        return adicao(num1, num2)
+    elif operacao == '-' or operacao.lower() == 'subtracaoN':
+        return subtracao(num1, num2)
+    elif operacao == '*' or operacao.lower() == 'multiplicacao':
+        return multiplicacao(num1, num2)
+    elif operacao == '/' or operacao.lower() == 'divisao':
+        return divisao(num1, num2)
+    else:
+            return 'Operação inválida \n'
+    
+# Input e condições
+
+while saida.lower() != 'n':
+    try:
+        num1 = float(input('Digite o primeiro numero: \n'))
+        num2 = float(input('Digite o segundo numero: \n'))
+        operacao = input('Digite a operaçao desejada (+, -, /, * ou nome) \n')
+
+    # Resultado
+
+        resultado = calculadora(num1, num2, operacao)
+        print(f'Resultado da operação: {resultado}')
+
+        saida = input('Deseja continuar? Digite S ou N: \n')
+    except: # Mensagem de erro ao utilizar letras
+        print('Operação inválida. Tente usar números')
+
+print('Operação encerrada')
